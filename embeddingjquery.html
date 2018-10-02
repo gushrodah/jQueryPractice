@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedding jQuery</title>
+        <!--<script src="JS/jquery-3.3.1.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styling.css">
+    </head>
+    <body>
+        <div class="bluebox">
+            <p>Facebook <span id="great"> is great </span></p>
+            <p><a>P2</a></p>
+            <p><a>P3</a></p>
+        </div>
+        <div class="yellowbox">
+            <p>Apple</p>
+            <p><a href="http://www.google.com">Google</a></p>
+            <p><a href="http://www.facebook.com">Facebook</a></p>
+            <ul>
+                <li>BMW</li>
+                <li>Audi</li>
+                <li>Mercedes</li>
+            </ul>
+        </div>
+        <div class="greenbox">
+            <p>Microsoft</p>
+            <table>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                </tr>
+                <tr>
+                    <th>Type 1</th>
+                    <th>iPhone</th>
+                </tr>
+                <tr>
+                    <th>Type 2</th>
+                    <th>Android</th>
+                </tr>
+                <tr>
+                    <th>Type 3</th>
+                    <th>Google</th>
+                </tr>
+            </table>
+            <p>Name: </p>
+            <input><button type="submit" id="nameSubmit">Submit</button>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            //$("*").css("font-size", '40px');
+            $("p").css("text-align", 'center');
+            //$("div > p > span").css("color",'white');
+            $("#great").css("background-color", "orange");
+            //$(".bluebox").css("font-size", '40px');
+            //$("p:first-child").css("text-decoration","underline");
+            //$("p:last-child").css("font-weight","bold");
+            $("p:first-child, p:last-child").css("text-decoration","underline");
+            $("[href]").css("color", 'red');
+            $("tr:even").css("background-color", 'yellowgreen');
+            $("tr:odd").css("background-color", 'yellow');
+        });
+    </script>
+</html>
