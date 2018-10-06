@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Select Menu</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+            #str{
+                width:200px;
+            }
+            .tabContent{
+                height:400px;
+                background-color:yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <p>Facebook</p>
+            <label for="str"></label>Select your biggest strength:</label>
+            <select id="str">
+                <option>Motivation</option>
+                <option selected="selected">Creativity</option>
+                <option>Curiosity</option>
+                <option>Integrity</option>
+                <option>Modesty</option>
+            </select>
+        </div>
+        <div class="yellowbox box ui-corner-all" id="apple">
+            <p>Apple</p>
+            <ul>
+                <li><a href="#tab1">Tab 1</a></li>
+                <li><a href="#tab2">Tab 2</a></li>
+                <li><a href="#tab3">Tab 3</a></li>
+            </ul>
+            <div id="tab1" class="tabContent">content 1</div>
+            <div id="tab2" class="tabContent">content 2</div>
+            <div id="tab3" class="tabContent">content 3</div>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#str").selectmenu({
+                
+            });
+            $("#apple").tabs();
+        });
+    </script>
+</html>

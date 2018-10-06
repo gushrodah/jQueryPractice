@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+            .ui-menu{
+                width:300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <p>Facebook</p>
+            <ul id="continents">
+                <li>Europe
+                    <ul>
+                        <li>UK
+                            <ul>
+                                <li>England</li>
+                                <li>Scottland</li>
+                                <li>Wales</li>
+                            </ul>
+                        </li>
+                        <li>Spain</li>
+                    </ul>
+                </li>
+                <li>Africa</li>
+                <li>North America
+                    <ul>
+                        <li>US
+                            <ul>
+                                <li>Hawaii</li>
+                            </ul>
+                        </li>
+                        <li>Canada</li>
+                    </ul>
+                </li>
+                <li>South America</li>
+                <li>Australia</li>
+            </ul>
+        </div>
+        <div class="yellowbox box ui-corner-all" id="apple">
+            <p>Apple</p>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#continents").menu();
+        });
+    </script>
+</html>

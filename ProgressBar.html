@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+            .ui-menu{
+                width:300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <p>Facebook</p>
+        </div>
+        <div class="yellowbox box ui-corner-all" id="apple">
+            <p>Apple</p>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+        </div>
+        <div id="label"></div>
+        <div id="progress"></div></div>
+        <button id="run">Run</button>
+    </body>
+    <script>
+        $(function(){
+            $("#progress").progressbar({
+                value:25
+            });
+            var amount = 0;
+            $("#run").click(function(){
+                $("#label").text("In progress...");
+                var progress = setInterval(function(){
+                    amount++;
+                    $("#label").text(amount+"%");
+                    $("#progress").progressbar({value:amount});
+                    if(amount >99){
+                        clearInterval(progress);
+                    }
+                });
+            });
+        });
+    </script>
+</html>

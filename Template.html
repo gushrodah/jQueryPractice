@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Template</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+            #affiliate{
+                width:200px;
+            }
+            .ui-menu{
+                width:300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box ui-corner-all" id="sections">
+            <p>Tempate</p>
+            <ul>
+                <li><a href="#tab1">Tab 1</a></li>
+                <li><a href="#tab2">Reservation</a></li>
+                <li><a href="#tab3">Tab 3</a></li>
+            </ul>
+            <div id="tab1" class="tabContent">
+                <h3>Headline</h3>
+                <div>
+                    <p>Game 1</p>
+                    <p>Game 2</p>
+                    <p>Game 3</p>
+                    <p>Game 4</p>
+                </div>
+                <h3>About Us</h3>
+                <div>
+                    <p>History</p>
+                    <p>Team</p>
+                </div>
+                <h3>Contact</h3>
+                <div>
+                    <p>Email</p>
+                    <p>Phone</p>
+                </div>
+            </div>
+            <div id="tab2" class="tabContent">
+                <p>Make your reservation here</p>
+                <p>Input your city:<input id="city"></p>
+                <p>Flight Departure Date:</p> <input id="departure">
+                <p>Flight Return Date:</p><input id="return"><br><br>
+
+                <label for="affiliate"></label>How did you find out about us?</label><br>
+                <select id="affiliate">
+                    <option>LinkedIn</option>
+                    <option selected="selected">Glassdoor</option>
+                    <option>Website</option>
+                    <option>Indeed</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div id="tab3" class="tabContent">
+                <p>Location</p>
+                <ul id="loc">
+                        <li>Europe
+                            <ul>
+                                <li>UK
+                                    <ul>
+                                        <li>England</li>
+                                        <li>Scottland</li>
+                                        <li>Wales</li>
+                                    </ul>
+                                </li>
+                                <li>Spain</li>
+                            </ul>
+                        </li>
+                        <li>Africa</li>
+                        <li>North America
+                            <ul>
+                                <li>US
+                                    <ul>
+                                        <li>Hawaii</li>
+                                    </ul>
+                                </li>
+                                <li>Canada</li>
+                            </ul>
+                        </li>
+                        <li>South America</li>
+                        <li>Australia</li>
+                    </ul>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#str").selectmenu({
+                
+            });
+            //accordion
+            $("#tab1").accordion({
+               collapsible:true,
+               icons:{
+                   header:"ui-icon-circle-arrow-e",
+                   activeHeader:"ui-icon-circle-arrow-s"
+               },
+               heightStyle:"content"
+           });
+            // div tabs
+            $("#sections").tabs();
+            // auto complete options
+            $("#city").autocomplete({
+                source:["London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo"]
+            });
+            // date picker
+            $("#return, #departure").datepicker({
+                showAnim: "fadeIn",
+                dateFormat:"M d yy",
+                showOn:"button",
+                buttonImage:"ui-icon-folder-open",
+                minDate: 0,
+                maxDate: "12M"
+            });
+            $("#affiliate").selectmenu();
+            $("#loc").menu();
+        });
+    </script>
+</html>

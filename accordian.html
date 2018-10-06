@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedding jQuery</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+
+          
+            
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <h3>Section1</h3>
+            <div>
+                <p>para1</p>
+                <p>para1</p>
+                <p>para1</p>
+                <p>para1</p>
+                <p>para1</p>
+                <p>para1</p>
+            </div>
+            <h3>Section2</h3>
+            <div><p>para2</p></div>
+            <h3>Section3</h3>
+            <div><p>para3</p></div>
+        </div>
+        <div class="yellowbox box ui-corner-all" id="apple">
+            <p>Apple</p>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+        </div>
+    </body>
+    <script>
+        $(function(){
+           $("#fb").accordion({
+               collapsible:true,
+               icons:{
+                   header:"ui-icon-circle-arrow-e",
+                   activeHeader:"ui-icon-circle-arrow-s"
+               },
+               heightStyle:"content"
+           });
+        });
+    </script>
+</html>

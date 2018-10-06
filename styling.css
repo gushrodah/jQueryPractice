@@ -1,10 +1,17 @@
-div{
+#aContainer{
+    height: 500px;
+    width: 100%;
+    border:dotted;
+}
+
+.box{
+    min-height: 100px;
     height:auto;
     margin:20px;
 }
 
 .bluebox{
-    background-color:blue;
+    background-color:skyblue;
 }
 
 .yellowbox{
@@ -14,4 +21,10 @@ div{
 .greenbox{
     background-color:green;
 }
+#list .ui-selecting{
+    background-color: "green";
+}
 
+#list .ui-selected{
+    background-color: "green";
+}

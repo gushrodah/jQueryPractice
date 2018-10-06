@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auto Completion</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+            .ui-autocomplete{
+                max-height: 200px;
+                overflow-y:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <p>Facebook</p>
+            <p>Input your city:<input id="city"></p>
+            <p>Flight Departure Date:</p> <input id="departure">
+            <p>Flight Return Date:</p><input id="return">
+        </div>
+        <div class="yellowbox box ui-corner-all" id="apple">
+            <p>Apple</p>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+        </div>
+        <button id="b1">Button 1</button>
+        <button id="b2">Button 2</button>
+        <button id="b3">Button 3</button>
+    </body>
+    <script>
+        $(function(){
+            $("#city").autocomplete({
+                source:["London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo",
+                "London", "Paris", "Tokyo"]
+            });
+            $("#b1").button();
+            $("#b2").button({
+                icons:{
+                    primary:"ui-icon-folder-open"
+                },
+                text:false
+            });
+            $("#b3").button({
+                icons:{
+                    primary: "ui-icon-mail-closed",
+                    secondary: "ui-icon-carat-l-e" 
+                }
+            });
+            $("#return, #departure").datepicker({
+                showAnim: "fadeIn",
+                dateFormat:"M d yy",
+                showOn:"button",
+                buttonImage:"ui-icon-folder-open",
+                minDate: 0,
+                maxDate: "12M"
+            });
+        });
+    </script>
+</html>

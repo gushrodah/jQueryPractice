@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedding jQuery</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+
+        </script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      
+        </script>
+        <link rel="stylesheet" href="styling.css">
+        <style>
+
+            li{
+                font-size: 2em;
+                margin-bottom: 5px;
+            text-align: center;
+            }
+            #list .ui-selecting{
+                background: gray;
+            }
+            #list .ui-selected{
+                background: orange;
+            }
+            .collection{
+                min-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bluebox box ui-corner-all" id="fb">
+            <p id="changeFb">Facebook <span id="great"> is great </span></p>
+        </div>
+        <div class="yellowbox ui-corner-all" id="apple">
+            <ul id="list1" class="collection">
+                <li class="ui-state-default">
+                    Audi
+                </li>
+        
+                <li class="ui-state-default">
+                    BMW
+                </li>
+        
+                <li class="ui-state-default">
+                    Mercedes
+                </li>
+        
+            </ul>
+        </div>
+        <div class="greenbox box ui-corner-all" id="micro">
+            <p>Microsoft</p>
+            <ul id="list2" class="collection">
+                    <li class="ui-state-default">
+                        Toyota
+                    </li>
+            
+                    <li class="ui-state-default">
+                        Honda
+                    </li>
+            
+                    <li class="ui-state-default">
+                        Ferrari
+                    </li>
+            
+                </ul>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#fb").resizable({
+                maxHeight: 500,
+                minHeight:50,
+                minWidth:100,
+                maxWidth:1000,
+                aspctRatio:4/3
+            });
+            $("#apple").resizable({
+                containment:"#aContainer"
+            });
+            /*$("#list").selectable({
+                stop:function(){
+                    $(".ui-selected").each(function(){
+                        $('<p></p>').text($(this).text()).appendTo("#micro");
+                    })
+                }
+            });
+            $("#list1").sortable({
+                placeholder:"ui-state-highlight",
+                connectWith: ".collection"
+            });*/
+            $("#list2, #list1").sortable({
+                placeholder:"ui-state-highlight",
+                connectWith: ".collection"
+            });
+        });
+    </script>
+</html>

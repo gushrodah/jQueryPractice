@@ -4,25 +4,27 @@
         <title>Embedding jQuery</title>
         <!--<script src="JS/jquery-3.3.1.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/start/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="styling.css">
     </head>
     <body>
-        <div class="bluebox">
-            <p>Facebook <span id="great"> is great </span></p>
+        <div class="bluebox ui-corner-all" id="fb">
+            <p id="changeFb">Facebook <span id="great"> is great </span></p>
             <p><a>P2</a></p>
             <p><a>P3</a></p>
         </div>
-        <div class="yellowbox">
+        <div class="yellowbox ui-corner-all" id ="apple">
             <p>Apple</p>
             <p><a href="http://www.google.com">Google</a></p>
             <p><a href="http://www.facebook.com">Facebook</a></p>
-            <ul>
+            <ul id="list">
                 <li>BMW</li>
                 <li>Audi</li>
                 <li>Mercedes</li>
             </ul>
         </div>
-        <div class="greenbox">
+        <div class="greenbox ui-corner-all" id="micro">
             <p>Microsoft</p>
             <table>
                 <tr>
@@ -43,8 +45,12 @@
                 </tr>
             </table>
             <p>Name: </p>
-            <input><button type="submit" id="nameSubmit">Submit</button>
+            <input id="input"><button type="submit" id="nameSubmit">Submit</button>
+            <button type="submit" id="mButton">Save Data</button>
+            <button type="submit" id="fadeToggle">Toggle Fade</button>
         </div>
+        <div class=" ui-state-error" style="height:100px;">Error Message</div>
+        <div id="droppable"><p>Add groceries here</p></div>
     </body>
     <script>
         $(function(){
@@ -59,6 +65,54 @@
             $("[href]").css("color", 'red');
             $("tr:even").css("background-color", 'yellowgreen');
             $("tr:odd").css("background-color", 'yellow');
+            $(":input").css("background-color", 'yellow');
+            $(":Submit").css("background-color", 'yellow');
+
+            $("p").click(function(){
+                $(this).css("background-color", 'gray');
+            });
+            $("p").mouseover(function(){
+                $(this).css("background-color", 'gray');
+            });
+            $("p").mouseleave(function(){
+                $(this).css("background-color", '');    
+            });
+            $("#nameSubmit").click(function(){
+                $("#input").css("background-color", 'white');
+                $("#input").val("");
+            })
+            $(".bluebox").mouseover(function(){
+                $(".bluebox").css("background-color", 'blue');
+            })
+            $(".bluebox").mouseleave(function(){
+                $(".bluebox").css("background-color", 'white');
+            })
+
+            $("#fadeToggle").click(function(){
+                $("#fb").fadeToggle(1000);
+                $("#apple").fadeToggle(2000);
+                $("#micro").fadeToggle(3000);
+            });
+            $("#fb").draggable(
+                {
+                    axis:"y",
+                    revert:true,
+                    drag:function(){
+                        $("#fb").css("background-color", "gray");
+                    }
+            });
+            $("#droppable").css("height", '200px');
+            $("#droppable").css("background-color", 'gray');
+            $("#droppable").droppable({
+                drop:function(){
+                    $(this).find("p").remove();
+                    //$("<div></div>").text(ui.draggable.text()).appendTo(this);
+                },
+                accept:"#list li",
+                helper:"clone",
+                appendTo:"body"
+            })
+            $("#list").find("li").draggable();
         });
     </script>
 </html>
